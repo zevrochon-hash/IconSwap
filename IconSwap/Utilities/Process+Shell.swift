@@ -50,8 +50,15 @@ extension Process {
 
     /// Run a shell command with administrator privileges via osascript.
     /// Shows the macOS password prompt if needed.
+    /// Sets PATH to include Homebrew locations so tools like fileicon can find their dependencies.
     static func runPrivileged(shellCommand: String) async throws -> ProcessResult {
-        let escaped = shellCommand.replacingOccurrences(of: "\"", with: "\\\"")
+        // Prepend Homebrew paths so Homebrew-installed binaries (e.g. fileicon) resolve correctly
+        // when running in the clean osascript/root environment.
+        let withPath = "export PATH=/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin; \(shellCommand)"
+        // Escape backslashes first, then double quotes, for embedding in AppleScript string literal.
+        let escaped = withPath
+            .replacingOccurrences(of: "\\", with: "\\\\")
+            .replacingOccurrences(of: "\"", with: "\\\"")
         let script = "do shell script \"\(escaped)\" with administrator privileges"
         return try await run(
             executable: "/usr/bin/osascript",
