@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <!-- Network access for macosicons.com API and icon downloads -->
+    <key>com.apple.security.network.client</key>
+    <true/>
+
+    <!-- NOT sandboxed — required to write to /Applications and run fileicon -->
+    <!-- Omitting com.apple.security.app-sandbox intentionally -->
+</dict>
+</plist>

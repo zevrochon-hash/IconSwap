@@ -1,0 +1,43 @@
+name: IconSwap
+options:
+  bundleIdPrefix: com.iconswap
+  deploymentTarget:
+    macOS: "13.0"
+  xcodeVersion: "16"
+  generateEmptyDirectories: true
+  createIntermediateGroups: true
+
+settings:
+  base:
+    SWIFT_VERSION: "6.0"
+    MACOSX_DEPLOYMENT_TARGET: "13.0"
+    ENABLE_HARDENED_RUNTIME: YES
+    ENABLE_APP_SANDBOX: NO
+    CODE_SIGN_STYLE: Automatic
+    PRODUCT_NAME: IconSwap
+
+targets:
+  IconSwap:
+    type: application
+    platform: macOS
+    deploymentTarget: "13.0"
+    sources:
+      - path: IconSwap
+        excludes:
+          - "**/*.md"
+    resources:
+      - path: IconSwap/Resources/Assets.xcassets
+    entitlements:
+      path: IconSwap/Resources/IconSwap.entitlements
+      properties:
+        com.apple.security.network.client: true
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.iconswap.app
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        CODE_SIGN_ENTITLEMENTS: IconSwap/Resources/IconSwap.entitlements
+        ENABLE_APP_SANDBOX: NO
+        SWIFT_VERSION: "6.0"
+        MACOSX_DEPLOYMENT_TARGET: "13.0"
+        INFOPLIST_FILE: IconSwap/Resources/Info.plist
+        GENERATE_INFOPLIST_FILE: NO
