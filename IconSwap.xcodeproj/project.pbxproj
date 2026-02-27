@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 77;
+	objectVersion = 63;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -32,6 +32,7 @@
 		D052D7698611926CEC337FA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A5D7387BAF91AA92C0AB336 /* Assets.xcassets */; };
 		D1DE21FCEBE7D320B11A73E0 /* AppFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3E5E8162A641B21DC6C672 /* AppFilter.swift */; };
 		D5714844D09EE157D60CC2DE /* IconReplacementService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE643ED025E369B40F84CC47 /* IconReplacementService.swift */; };
+		E1580A742F51E061003EFD68 /* IconSwap.icon in Resources */ = {isa = PBXBuildFile; fileRef = E1580A732F51E061003EFD68 /* IconSwap.icon */; };
 		E22AF807BF7A519BC559F60F /* AppLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2707D6FF6E82E8ECFC605E0E /* AppLogger.swift */; };
 		E2723C31AD8791B63B104FD8 /* IconGridViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F60840040399A49FF4D817 /* IconGridViewModel.swift */; };
 		E57BC90A838DDAAA87113A05 /* FilterBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF55DADE415A186F5557DB5 /* FilterBarView.swift */; };
@@ -70,6 +71,7 @@
 		CA0EF9C63BE917237D22B0CB /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
 		CA976FB318BF98FA8A2C2306 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		DD93CDB8E38A9042629E7828 /* Process+Shell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Process+Shell.swift"; sourceTree = "<group>"; };
+		E1580A732F51E061003EFD68 /* IconSwap.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = IconSwap.icon; sourceTree = "<group>"; };
 		E1D0B418AE2AB1109C24F7CA /* PersistenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceService.swift; sourceTree = "<group>"; };
 		FE643ED025E369B40F84CC47 /* IconReplacementService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconReplacementService.swift; sourceTree = "<group>"; };
 		FFF55DADE415A186F5557DB5 /* FilterBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterBarView.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 		33B3B98D22CD36482628C124 /* Products */ = {
 			isa = PBXGroup;
 			children = (
+				E1580A732F51E061003EFD68 /* IconSwap.icon */,
 				816A029E59A8C04A05DF94F2 /* IconSwap.app */,
 			);
 			name = Products;
@@ -232,7 +235,6 @@
 			);
 			mainGroup = D4314E89191CCC160831EF7E;
 			minimizedProjectReferenceProxies = 1;
-			preferredProjectObjectVersion = 77;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -246,6 +248,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1580A742F51E061003EFD68 /* IconSwap.icon in Resources */,
 				D052D7698611926CEC337FA4 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -361,7 +364,7 @@
 		6A8FE638EAA5A6348BC30908 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = IconSwap;
 				CODE_SIGN_ENTITLEMENTS = IconSwap/Resources/IconSwap.entitlements;
 				COMBINE_HIDPI_IMAGES = YES;
 				ENABLE_APP_SANDBOX = NO;
@@ -381,7 +384,7 @@
 		95BEE93758F3EF0A6DBAECE3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = IconSwap;
 				CODE_SIGN_ENTITLEMENTS = IconSwap/Resources/IconSwap.entitlements;
 				COMBINE_HIDPI_IMAGES = YES;
 				ENABLE_APP_SANDBOX = NO;
