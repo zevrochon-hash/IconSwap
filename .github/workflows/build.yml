@@ -7,24 +7,19 @@ jobs:
   build:
     runs-on: macos-14
 
-    env:
-      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Fix permissions
-        run: chmod -R +x .
-
       - name: Install xcodegen
         run: brew install xcodegen
 
-      - name: Generate project
-        run: xcodegen generate --use-cache
+      - name: Generate project (force older format)
+        run: xcodegen generate --spec project.yml
 
-      - name: Debug files
-        run: ls -R
+      - name: Downgrade project format
+        run: |
+          sed -i '' 's/objectVersion = 77;/objectVersion = 60;/g' IconSwap.xcodeproj/project.pbxproj
 
       - name: List schemes
         run: xcodebuild -list
