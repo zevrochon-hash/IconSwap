@@ -7,17 +7,26 @@ jobs:
   build:
     runs-on: macos-14
 
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Fix permissions
+        run: chmod -R +x .
 
       - name: Install xcodegen
         run: brew install xcodegen
 
       - name: Generate project
-        run: xcodegen generate
+        run: xcodegen generate --use-cache
 
-      - name: Show schemes (debug)
+      - name: Debug files
+        run: ls -R
+
+      - name: List schemes
         run: xcodebuild -list
 
       - name: Build
