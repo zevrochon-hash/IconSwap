@@ -17,15 +17,15 @@ jobs:
       - name: Generate project
         run: xcodegen generate
 
-      - name: Force compatible project + Swift version
+      - name: Fix project compatibility
         run: |
           # Fix Xcode project format
           sed -i '' 's/objectVersion = 77;/objectVersion = 60;/g' IconSwap.xcodeproj/project.pbxproj
           
-          # Force Swift 5 instead of Swift 6
+          # Force Swift 5
           sed -i '' 's/SWIFT_VERSION = 6.0;/SWIFT_VERSION = 5.0;/g' IconSwap.xcodeproj/project.pbxproj
 
-      - name: Build
+      - name: Build (Universal: Intel + Apple Silicon)
         run: |
           xcodebuild \
             -project IconSwap.xcodeproj \
@@ -33,10 +33,12 @@ jobs:
             -configuration Release \
             -sdk macosx \
             -derivedDataPath build \
-            CODE_SIGNING_ALLOWED=NO
+            CODE_SIGNING_ALLOWED=NO \
+            ARCHS="x86_64 arm64" \
+            ONLY_ACTIVE_ARCH=NO
 
-      - name: Upload
+      - name: Upload build
         uses: actions/upload-artifact@v4
         with:
           name: IconSwap
-          path: build
+          path: build/Build/Products/Release/
