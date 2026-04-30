@@ -14,15 +14,16 @@ jobs:
       - name: Install xcodegen
         run: brew install xcodegen
 
-      - name: Generate project (force older format)
-        run: xcodegen generate --spec project.yml
+      - name: Generate project
+        run: xcodegen generate
 
-      - name: Downgrade project format
+      - name: Force compatible project + Swift version
         run: |
+          # Fix Xcode project format
           sed -i '' 's/objectVersion = 77;/objectVersion = 60;/g' IconSwap.xcodeproj/project.pbxproj
-
-      - name: List schemes
-        run: xcodebuild -list
+          
+          # Force Swift 5 instead of Swift 6
+          sed -i '' 's/SWIFT_VERSION = 6.0;/SWIFT_VERSION = 5.0;/g' IconSwap.xcodeproj/project.pbxproj
 
       - name: Build
         run: |
@@ -33,8 +34,7 @@ jobs:
             -sdk macosx \
             -derivedDataPath build \
             CODE_SIGNING_ALLOWED=NO
-            SWIFT_VERSION=5.0
-            
+
       - name: Upload
         uses: actions/upload-artifact@v4
         with:
