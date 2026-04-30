@@ -25,7 +25,7 @@ jobs:
           # Force Swift 5
           sed -i '' 's/SWIFT_VERSION = 6.0;/SWIFT_VERSION = 5.0;/g' IconSwap.xcodeproj/project.pbxproj
 
-      - name: Build (Universal: Intel + Apple Silicon)
+      - name: "Build (Universal: Intel + Apple Silicon)"
         run: |
           xcodebuild \
             -project IconSwap.xcodeproj \
